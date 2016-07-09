@@ -2,6 +2,12 @@
 	%h1= @post.title
 	%p= @post.content
 
+	#comments
+		%h2= @post.comments.count
+		= render @post.comments
+
+		%h3 Reply to thread
+		= render 'comments/form'
 
 - if user_signed_in?
 	= link_to "Edit", edit_post_path(@post)
